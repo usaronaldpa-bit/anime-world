@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>anime world</title>
+    <style>
+      button{
+    background-color:orange;
+}
+body{
+    background-color:grey;
+    padding-left:50px;
+    padding-top:50px;
+}
+p{
+    color:white;
+}
+h1{
+    color:white;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+}
+#shopping-cart {
+  border: 1px solid #eee;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#cart-items li {
+  margin-bottom: 5px;
+}
+.my-button {
+  background-color: blue;
+  color: white;
+}
+
+.my-button:hover {
+  background-color: darkblue; /* "Signal" on hover */
+}
+a{
+  background-color:black;
+color:white;
+}
+.checkout-btn-2025 {
+    background-color: #007bff; /* Primary Action Color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    width: 100%; /* Modern full-width mobile-first design */
+}
+
+.checkout-btn-2025:hover {
+    background-color: #0056b3;
+}
+
+.checkout-btn-2025:active {
+    transform: scale(0.98); /* Tactile feedback */
+}
+.search-container {
+    margin-bottom: 20px;
+}
+
+#product-search {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 25px; /* Modern pill shape */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#product-search:focus {
+    border-color: #007bff; /* Highlights when typing */
+}
+.limited-edition-tag {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  
+  /* Create the rainbow gradient */
+  background: linear-gradient(
+    to right, 
+    #ff0000, #ff8b00, #e8ff00, #5dff00, #00b9ff, #5d00ff, #ff0000
+  );
+  
+  /* Clip the background to the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* Size the background so it can move */
+  background-size: 200% auto;
+  
+  /* Apply the animation */
+  animation: rainbow-flow 3s linear infinite;
+}
+
+/* Define the movement */
+@keyframes rainbow-flow {
+  to {
+    background-position: 200% center;
+  }
+}
+      </style>
+</head>
+<body>
+  <header>anime world</header>
+<!-- Cart Display -->
+<div id="cart-display">
+  <h3>Your Cart</h3>
+  <ul id="cart-list"></ul>
+  <p>Total: $<span id="total-price">0.00</span></p>
+</div>
+  
+    <h1> welcome to anime world</h1>
+    <p>welcome we have alot of stuff. to purchese</p>
+    <img alt="luffy romance dawn" width="300" height="300" src="https://i.ebayimg.com/images/g/wAIAAOSw3iNmyEHT/s-l1600.png">
+    <br>
+    <p>$35.00</p>
+<button type="button" id="button1">add to cart</button>
+
+<br>
+    <img alt="tanjaro" width="300" height="300" src="https://i.ebayimg.com/images/g/I0EAAOSwt3Jm4e~W/s-l400.jpg">
+    <br>
+    <p>$26.00</p>
+    <button type="button" id="button2">add to cart</button>
+    <br>
+    <img alt="zoro" width="300" height="300" src="https://i.ebayimg.com/images/g/zzkAAOSwa2FlLrBe/s-l1200.jpg"> <br>
+    <p>$85.99</p>
+        <button type="button" id="button3">add to cart</button>
+        <br>
+       <img alt="totaroki" width="300" height="300" src="https://i.ebayimg.com/images/g/NgUAAOSw839oVBwB/s-l1200.jpg"> <br>
+       <p>$20.30</p>
+        <button type="button" id="button4">add to cart</button>
+         <br> 
+       <img alt="anya" width="300" height="300" src="https://cdn11.bigcommerce.com/s-se76uaubob/images/stencil/1280x1280/products/2603/24166/2__75824.1688081036.jpg?c=2"> 
+       <p>$45.99</p>
+       <button type="button" id="button5">add to cart</button>
+       <br>
+          <img alt="baruto" width="300" height="300" src="https://i.ebayimg.com/images/g/jhQAAeSw8wtpPRsC/s-l1600.jpg"> 
+         <br>
+         <button type="button" id="button6">add to cart</button>
+<p>$34.99</p>
+<img alt="ussop" width="300" height="300" src="https://preview.redd.it/usopp-is-the-goat-v0-0gbnc32al68g1.jpg?width=640&crop=smart&auto=webp&s=6063c345bff071fb30261938036b9c3879bcecd1"> 
+<br>
+<p>30.00</p>
+      <button type="button" id="button7">add to cart</button>
+         <br>
+<img alt="luffy parts " width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-monkey-d-luffy-romance-dawn-gum-gum-option-parts-set-4573102673046-pkf_800x.jpg?v=1744238873"> <br>
+<p>$10.00</p>
+      <button type="button" id="button8">add to cart</button> 
+       <br>
+<img alt="izuku" width="300" height="300" src="https://i.ebayimg.com/images/g/FYwAAOSwsPFncfFk/s-l400.jpg"> <br>
+<span class="limited-edition-tag">Limited Edition</span>
+<p>$55.00</p>
+       <button type="button" id="button9">add to cart</button>
+         <br> 
+<img alt="sanji onigashima " width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-the-raid-on-onigashima-sh-figuarts-sanji-4573102649317-pkg_800x.jpg?v=1699306358"> <br>
+<p>$35.00</p>
+        <button type="button" id="button10">add to cart</button>
+         <br>
+    <img alt="kaido" width="300" height="300" src="https://figurestart.com/cdn/shop/files/S.H.Figuarts-Kaido-Man-Beast-Form-Figure-Sale.jpg?v=1718263978&width=1445"> <br>
+    <p>$120.00</p>
+    <button type="button" id="button11">add to cart</button>
+     <br> 
+<img alt="marshal" width="300" height="300" src="https://i.ebayimg.com/images/g/qnAAAeSw81xo1r5k/s-l400.jpg"> <br>
+<p>$50.00</p> <br>
+    <button type="button" id="button12">add to cart</button>
+      <br>
+    <img alt="ace" width="300" height="300" src="https://i.ebayimg.com/images/g/43UAAOSwg5dni3en/s-l1200.png"> <br>
+    <p>$65.00</p>
+       <button type="button" id="button13">add to cart</button>
+       <br>
+<img alt="nezuko" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/hgfhf_45b688a3-1d6f-44b2-930b-a5084a92adca.jpg?v=1727382562"> <br>
+<p>$30.00</p> <br>
+<button type="button" id="button14">add to cart</button>
+         <br>
+    <img alt="nami romance dawn" width="300" height="300" src="https://i.ebayimg.com/00/s/MTIwMFgxMDEy/z/rvQAAOSwgwVnGoYS/$_57.JPG?set_id=880000500F"> <br>
+    <p>$33.99</p> <br>
+         <button type="button" id="button15">add to cart</button>
+          <br>
+<img alt="egghead luffy" width="300" height="300" src="https://i.ebayimg.com/images/g/-lEAAOSwIoJoNJaO/s-l1200.png"> <br> 
+<p>$20.00</p><br>
+         <button type="button" id="button16">add to cart</button>
+          <br>
+    <img alt="vageta" width="300" height="300" src="https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/i6YAAeSwt4NobUFQ/$_57.JPG?set_id=880000500F"> <br>
+    <p>$40.00</p>
+         <br> <button type="button" id="button17">add to cart</button><br>
+<img alt="bakugo" width="300" height="300" src="https://i.ebayimg.com/images/g/yOsAAOSwkcNn6-pj/s-l1200.jpg"> <br>
+<p>$30.00</p>
+        <br> <button type="button" id="button18">add to cart</button> <br>
+    <img alt="chopper egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/6yAAAeSwQBxolLaL/s-l1200.webp"> <br>
+    <p>$20.99</p>
+       <br> <button type="button" id="button19">add to cart</button>  <br>
+<img alt="luffy gear5" width="300" height="300" src="https://i.ebayimg.com/images/g/3CgAAOSwRcRmOZwt/s-l1200.jpg"> <br>
+<span class="limited-edition-tag">Limited Edition</span>
+<p>$40.00</p>
+         <br> <button type="button" id="button20">add to cart</button> <br>
+    <img alt="gojo" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/jujutsu-kaisen-sh-figuarts-satoru-gojo-tech-4573102655226-pkg_800x.jpg?v=1749080003"> <br>
+    <p>$20.00</p>
+         <br> <button type="button" id="button21">add to cart</button> <br>
+<img alt="narto" width="300" height="300" src="https://i.ebayimg.com/images/g/0UMAAOSw2qdizBwh/s-l1200.jpg"> <br>
+<p>$30.00</p>
+<br> <button type="button" id="button22">add to cart</button> <br>
+    <img alt="sauske" width="300" height="300" src="https://i.ebayimg.com/images/g/ITQAAOSwewJmNWDV/s-l1200.jpg"> <br>
+    <p>$24.99</p>
+        <br> <button type="button" id="button23">add to cart</button> <br>
+<img alt="giyu" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/demon-slayer-kimetsu-no-yaiba-sh-figuarts-giyu-tomioka-4573102664778_1024x1024.jpg?v=1730163232"> <br>
+<p>$25.99</p>
+        <br> <button type="button" id="button24">add to cart</button> <br>
+    <img alt="rengoku" width="300" height="300" src="https://www.sugoimart.com/cdn/shop/files/SGM_ProductPDP_Template_0000_SGM32132.jpg?v=1755371076&width=620"> <br>
+    <p>$24.99</p>
+        <br> <button type="button" id="button25">add to cart</button> <br>
+<img alt="shinobu" width="300" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUSbocb9TzmWjveodWX2-a4GxjJphp5Clb1g&s"> <br>
+       <p>$29.99</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="goku super sain" width="300" height="300" src="https://cdn11.bigcommerce.com/s-cy4lua1xoh/images/stencil/1280x1280/products/35142/339619/82e97d6f-12fc-5f47-abb0-ca75a191babc__63907.1704740616.jpg?c=1?imbypass=on"> <br>
+    <p>$36.99</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="goku super sain blue" width="300" height="300" src="https://preview.redd.it/i-got-a-ssj-blue-goku-as-my-first-sh-figuart-which-shf-v0-5w8b6i023ldd1.jpeg?auto=webp&s=e5db80c0ae8b4c753a5b56b6b17ba458a338703a"> <br>
+<p>$15.99</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="goku ultra Instinct" width="300" height="300" src="https://cdn11.bigcommerce.com/s-se76uaubob/images/stencil/1280x1280/products/1931/18091/m38285716718_1__82505.1656369023.jpg?c=2"> <br>
+    <p>$20.99</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="zoro" width="300" height="300" src="https://i.ebayimg.com/images/g/t1YAAOSwEitnsqo9/s-l1200.png"> <br>
+<p>$22.00</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="shanks" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-shanks-monkey-d-luffy-childhood-4573102673053-pkg_800x.jpg?v=1745281496"> <br>
+    <p>$40.00</p>
+</form>
+    <form>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="son gohan" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/dragonball-z-sh-figuarts-super-saiyan-gohan-warror-who-surpassed-goku-4573102655547-pkg_800x.jpg?v=1716846935"> <br>
+<p>$20.00</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"><br> <br> <br>
+    <img alt="vageta" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/dragonball-super-sh-figuarts-super-saiyan-blue-vegeta-unwavering-pride-4573102664587-pkg_800x.jpg?v=1730496439"> <br>
+    <p>$20.00</p>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="luffy onigashima" width="300" height="300" src="https://i.ebayimg.com/images/g/AFsAAOSwUXFk1Ohk/s-l960.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="bonnie egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/Qd8AAeSwwp1o0Vtc/s-l400.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="tech/blackbeard" width="300" height="300" src="https://i.ebayimg.com/images/g/KeUAAeSw7TBoyBae/s-l1200.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="gon" width="300" height="300" src="https://i.ebayimg.com/images/g/g74AAOSw22poXVNi/s-l1200.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="kullia" width="300" height="300" src="https://i.ebayimg.com/images/g/~c4AAeSwa-Rogk-L/s-l1200.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="franky" width="300" height="300" src="https://solarisjapan.com/cdn/shop/products/51flSE7MrtL.jpg?v=1600407496"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="sabo" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-sabo-revolutionary-army-chief-of-staff-4573102666260-pkg_800x.jpg?v=1740076784"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"><br> <br> <br>
+    <img alt="garra" width="300" height="300" src="https://i.ebayimg.com/images/g/eNwAAOSw-CBhfHMX/s-l400.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="kakashi" width="300" height="300" src="https://i.ebayimg.com/images/g/mVIAAOSwwblj68Ff/s-l1200.jpg">
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <br>
+    <img alt="sakura" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/BandaiNarutoShippudenSHFiguartsNarutop99SakuraHarunoActionFigure1.jpg?v=1722269777"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="chainsaw man" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/chainsaw-man-sh-figuarts-chainsw-man-4573102640512-pkg_800x.jpg?v=1696616278"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="gamai and bandi" width="300" height="300" src="https://m.media-amazon.com/images/I/71z2jZOwCSL._AC_SL1500_.jpg"> <br>
+        <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="ichici awa" width="300" height="300" src="https://gaijingadgets.com/cdn/shop/files/IMG_4910.jpg?v=1719083003"> <br>
+   <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="yor" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/spy-x-family-sh-figuarts-yor-forger-mother-of-the-forger-family-4573102653666-pkg_800x.jpg?v=1725051955"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="yor job form" width="300" height="300" src="https://m.media-amazon.com/images/I/71mwHmtwxcL._AC_UF894,1000_QL80_.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="loid spy" width="300" height="300" src="https://i.ebayimg.com/images/g/JowAAOSwAsJj3rgp/s-l1200.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="loid at home" width="300" height="300" src="https://www.supernovatnc.com/cdn/shop/files/s-l1600_d315dc1f-c150-46ca-bbf2-565d37d9e150.jpg?v=1709336214"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <img alt="lance" width="300" height="300" src="https://i.ebayimg.com/images/g/A8QAAOSwsCNlYs7R/s-l300.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="dot" width="300" height="300" src="https://i.ebayimg.com/images/g/WvkAAeSwGI5oeq-Q/s-l300.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="chainsaw man" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/chainsaw-man-sh-figuarts-denji-4573102656506-pkg_800x.jpg?v=1713819213"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="Kyouka Gaikokkaku" width="300" height="300" src="https://cdn11.bigcommerce.com/s-cy4lua1xoh/images/stencil/1280x1280/products/35970/352732/0561bff8-1362-5d2d-bb2d-484d9d00c83b__75363.1713798108.jpg?c=1"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>   <img alt="luffy live acton" width="300" height="300" src="https://resources.claroshop.com/medios-plazavip/s2/33452/5295310/65ef9cf17eb5c-bandai-sh-figuarts-one-piece-monkey-d-luffy-netflix-series5-1600x1600.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="freza 4 " width="300" height="300" src="https://i.ebayimg.com/00/s/NzM2WDczNg==/z/Q8YAAOSwInNiIvo-/$_57.JPG?set_id=8800005007"> <br>
+     <br> <br> <br>
+    <img alt="freza buff" width="300" height="300" src="https://i.ebayimg.com/images/g/z9MAAOSwjKJm25rO/s-l1200.jpg"> <br>
+     <br> <br> <br>
+<img alt="golden freza" width="300" height="300" src="https://images-na.ssl-images-amazon.com/images/I/518O1gCUjJL.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <img alt="zoro live action" width="300" height="300" src=" https://m.media-amazon.com/images/I/717JUvVIePL._AC_UF894,1000_QL80_.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="live action nami" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/hgfhf_5f5be845-1713-4e56-b3b2-f9bc8313d675.jpg?v=1727370116"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="yamato" width="300" height="300" src="https://blueberry-cat.com/cdn/shop/files/57_5bfe20a9-8ec9-4a02-b200-9759128c634e_1024x1024@2x.jpg?v=1724257957"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="yuji" width="300" height="300" src="https://i.ebayimg.com/00/s/MTUzOVgxMDE0/z/fG4AAOSwcCZnFlVw/$_57.JPG?set_id=880000500F"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <img alt="momo" width="300" height="300" src="https://i.ebayimg.com/images/g/0~gAAOSw~z1nlkCm/s-l400.jpg"> <br>
+     <br> <br> <br>
+<img alt="memugi" width="300" height="300" src="https://ae01.alicdn.com/kf/S04f2548d85814df2b9babd76852f55baz.jpg_960x960.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="norbara" width="300" height="300" src="https://cmdstore.com/cdn/shop/products/jujutsu-kaisen-sh-figuarts-nobara-kugisaki-4573102629760-pkg_800x.jpg?v=1662056447"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="izuku and bakugo" width="300" height="300" src="https://i.ebayimg.com/images/g/aEcAAeSwgldohTcz/s-l1200.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <img alt="law" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-trafalgar-law-4573102660534-pkg_800x.jpg?v=1714079969"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="kid" width="300" height="300" src="https://i.ebayimg.com/images/g/yqEAAOSwcc9mhNeW/s-l1200.png"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="bond" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/spy-x-family-sh-figuarts-bond-forger-with-anya-4573102653673_1024x.jpg?v=1724979551"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<img alt="zenutu" width="300" height="300" src="https://hello-japan.com/cdn/shop/files/SGM_ProductPDP_Template_0000_SGM32134.jpg?v=1755842939"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+<input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="ochaco" width="300" height="300" src="https://i.ebayimg.com/images/g/YZAAAeSwZ8VpAsT-/s-l1600.jpg"> <br>
+    <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_id" value="456">
+  <input type="hidden" name="product_name" value="Another Item">
+  <input type="hidden" name="product_price" value="29.99">
+  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <img alt="gear 5 monkey-d-luffy egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/7dwAAeSwpUNo-XAz/s-l1600.jpg"> <br>
+    <p>$20.00</p>
+    <footer style="background-color:white; text-align:center;padding:10px 20px;color:black; margin-left:0;">
+      <p>{963-559-3419}</p>
+     <p>thanks for shoping with us :)</p> </footer>
+    <script>
+let cart = [];
+
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name: name, price: price, quantity: 1 });
+    }
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartList = document.getElementById("cart-list");
+    const totalDisplay = document.getElementById("total-price");
+    
+    cartList.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}`;
+        cartList.appendChild(li);
+        total += item.price * item.quantity;
+    });
+
+    totalDisplay.textContent = total.toFixed(2);
+}
+
+// Listeners for both buttons
+document.getElementById("button1").addEventListener("click", () => addToCart("monkey-d-luffy romance dawn version", 35.00));
+document.getElementById("button2").addEventListener("click", () => addToCart("Demon Slayer Tanjiro Kamado Action Figure 2", 26.00));
+document.getElementById("button3").addEventListener("click", () => addToCart("Roronoa Zoro One Piece BEST SELECTION Raid Onigashima", 85.99));
+document.getElementById("button4").addEventListener("click", () => addToCart("Action Figure Shoto Todoroki (My Hero Academia)", 20.30));
+document.getElementById("button5").addEventListener("click", () => addToCart(" Spy X Family Anya Forger Uniform Ver Figure",45.99));
+document.getElementById("button6").addEventListener("click", () => addToCart("Boruto Uzumaki Action Figure -Naruto Next Generations", 12.99));
+document.getElementById("button7").addEventListener("click", () => addToCart("One Piece Usopp Romance Dawn Action Figure SHF Toy In Stock", 30.00));
+document.getElementById("button8").addEventListener("click", () => addToCart(" Monkey D. Luffy Romance Dawn Gum-Gum Option Parts Set New", 55.00));
+document.getElementById("button9").addEventListener("click", () => addToCart("My Hero Academia Izuku Midoriya Deku Figure", 20.00));
+document.getElementById("button10").addEventListener("click", () => addToCart("One Piece Sanji Invasion of Onigashima Action Figure", 35.00));
+document.getElementById("button11").addEventListener("click", () => addToCart("One Piece - Kaido King of The Beasts (Man-Beast Form) S.H.Figuarts Action Figure", 120.00));
+document.getElementById("button12").addEventListener("click", () => addToCart("Mashle: Magic and Muscles - Mash Burnedead, Bandai Spirits S.H.Figuarts Action Figure", 50.00));
+document.getElementById("button13").addEventListener("click", () => addToCart("ONE PIECE PORTGAS D ACE FIRE FIST ACTION FIGURE GIFT", 65.00));
+document.getElementById("button14").addEventListener("click", () => addToCart("Demon Slayer: Kimetsu no Yaiba - Nezuko Kamado", 30.00));
+document.getElementById("button15").addEventListener("click", () => addToCart("One Piece SHF Nami Romance Dawn Action Figure", 33.99));
+document.getElementById("button16").addEventListener("click", () => addToCart("One Piece Monkey.D.Luffy Future Island Egghead Action Figure", 20.00));
+document.getElementById("button17").addEventListener("click", () => addToCart(" Dragonball Vegeta -DAIMA- TAMASHII NATIONS Action Figure New", 40.00));
+document.getElementById("button18").addEventListener("click", () => addToCart("My Hero Academia Katsuki Bakugo TAMASHII NATIONS Bandai Japan New", 30.00));
+document.getElementById("button19").addEventListener("click", () => addToCart("TonyTony.Chopper -Future Island Egghead- One Piece, Action Figure", 20.99));
+document.getElementById("button20").addEventListener("click", () => addToCart("One Piece MONKEY.D.LUFFY GEAR 5 Action Figure ", 40.00));
+document.getElementById("button21").addEventListener("click", () => addToCart("Jujutsu Kaisen Satoru Gojo Action Figure SHF", 20.00));document.getElementById("button22").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 30.00));
+document.getElementById("button23").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 30.00));
+document.getElementById("button24").addEventListener("click", () => addToCart(" Demon Slayer Giyu Tomioka Action Figure Bandai Spirits", 30.00));
+document.getElementById("button25").addEventListener("click", () => addToCart("Kyojuro Rengoku Demon Slayer", 30.00));
+      </script>
+</body>
+</html>
