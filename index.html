@@ -113,14 +113,33 @@ color:white;
       </style>
 </head>
 <body>
-  <header>anime world</header>
+  <header>Anime SQUAD</header>
+  <div>
+    
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button style="background-color:green; color:white;" class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="justify-content-end">
+  <
+<p><a id="67" class="link-offset-1" href="https://animesquadlogin.netlify.app/">sign in</a></p>
+</div>
 <!-- Cart Display -->
 <div id="cart-display">
   <h3>Your Cart</h3>
   <ul id="cart-list"></ul>
   <p>Total: $<span id="total-price">0.00</span></p>
 </div>
-  
+<button id="checkout-btn" style="background-color:green; color:white;">checkout</button>
+
+<button id="clear-cart-btn" style="background-color:red; color:white;">
+  Clear Cart
+</button>
     <h1> welcome to anime world</h1>
     <p>welcome we have alot of stuff. to purchese</p>
     <img alt="luffy romance dawn" width="300" height="300" src="https://i.ebayimg.com/images/g/wAIAAOSw3iNmyEHT/s-l1600.png">
@@ -222,28 +241,13 @@ color:white;
         <br> <button type="button" id="button25">add to cart</button> <br>
 <img alt="shinobu" width="300" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUSbocb9TzmWjveodWX2-a4GxjJphp5Clb1g&s"> <br>
        <p>$29.99</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="goku super sain" width="300" height="300" src="https://cdn11.bigcommerce.com/s-cy4lua1xoh/images/stencil/1280x1280/products/35142/339619/82e97d6f-12fc-5f47-abb0-ca75a191babc__63907.1704740616.jpg?c=1?imbypass=on"> <br>
-    <p>$36.99</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+         <br> <button type="button" id="button26">add to cart</button> <br>
 <img alt="goku super sain blue" width="300" height="300" src="https://preview.redd.it/i-got-a-ssj-blue-goku-as-my-first-sh-figuart-which-shf-v0-5w8b6i023ldd1.jpeg?auto=webp&s=e5db80c0ae8b4c753a5b56b6b17ba458a338703a"> <br>
 <p>$15.99</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+        <br> <button type="button" id="button27">add to cart</button> <br>
     <img alt="goku ultra Instinct" width="300" height="300" src="https://cdn11.bigcommerce.com/s-se76uaubob/images/stencil/1280x1280/products/1931/18091/m38285716718_1__82505.1656369023.jpg?c=2"> <br>
     <p>$20.99</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+    <br> <button type="button" id="button28">add to cart</button> <br>
 <img alt="zoro" width="300" height="300" src="https://i.ebayimg.com/images/g/t1YAAOSwEitnsqo9/s-l1200.png"> <br>
 <p>$22.00</p>
         <input type="hidden" name="product_id" value="456">
@@ -455,10 +459,9 @@ color:white;
   <input type="submit" value="Add to Cart"> <br> <br> <br>
     <img alt="gear 5 monkey-d-luffy egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/7dwAAeSwpUNo-XAz/s-l1600.jpg"> <br>
     <p>$20.00</p>
-    <footer style="background-color:white; text-align:center;padding:10px 20px;color:black; margin-left:0;">
-      <p>{963-559-3419}</p>
-     <p>thanks for shoping with us :)</p> </footer>
     <script>
+       
+       
 let cart = [];
 
 function addToCart(name, price) {
@@ -510,9 +513,72 @@ document.getElementById("button18").addEventListener("click", () => addToCart("M
 document.getElementById("button19").addEventListener("click", () => addToCart("TonyTony.Chopper -Future Island Egghead- One Piece, Action Figure", 20.99));
 document.getElementById("button20").addEventListener("click", () => addToCart("One Piece MONKEY.D.LUFFY GEAR 5 Action Figure ", 40.00));
 document.getElementById("button21").addEventListener("click", () => addToCart("Jujutsu Kaisen Satoru Gojo Action Figure SHF", 20.00));document.getElementById("button22").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 30.00));
-document.getElementById("button23").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 30.00));
-document.getElementById("button24").addEventListener("click", () => addToCart(" Demon Slayer Giyu Tomioka Action Figure Bandai Spirits", 30.00));
-document.getElementById("button25").addEventListener("click", () => addToCart("Kyojuro Rengoku Demon Slayer", 30.00));
+document.getElementById("button23").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 24.99));
+document.getElementById("button24").addEventListener("click", () => addToCart(" Demon Slayer Giyu Tomioka Action Figure Bandai Spirits", 25.99));
+document.getElementById("button25").addEventListener("click", () => addToCart("Kyojuro Rengoku Demon Slayer", 24.99));
+document.getElementById("button26").addEventListener("click", () => addToCart("Bandai Demon Slayer: Kimetsu no Yaiba Tamashii Nations S.H.Figuarts Shinobu Kocho 7.1-in Figure", 29.99));
+document.getElementById("button27").addEventListener("click", () => addToCart("Dragon Ball Super Super Saiyan God Super Saiyan Goku", 15.99));
+document.getElementById("button28").addEventListener("click", () => addToCart("Ultra Instinct Goku [Dragon Ball Super] (S.H.Figuarts)", 15.99));
       </script>
+      <script>
+  // Assuming 'cart' is your array of items
+  // and 'cartList' is your <ul> or <div> element
+  const clearBtn = document.getElementById('clear-cart-btn');
+
+  clearBtn.addEventListener('click', () => {
+    // 1. Reset the cart data to an empty array
+    cart = []; 
+
+    // 2. Clear the visual list in the HTML
+    const cartList = document.getElementById('cart-list');
+    cartList.innerHTML = ''; 
+
+    // 3. Reset the total price display to $0.00
+    const totalPriceDisplay = document.getElementById('total-price');
+    totalPriceDisplay.innerText = '0.00';
+
+    // Optional: Log confirmation for 2026 debugging
+    console.log("Cart was cleared successfully."); 
+  });
+</script>
+<script>
+  document.getElementById('checkout-btn').addEventListener('click', () => {
+    // 1. Check if there is anything to buy
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    // 2. Calculate the total spent
+    let totalSpent = cart.reduce((sum, item) => sum + item.price, 0);
+
+
+    // 3. THE CLEARING PART:
+    // This empties the data array and resets the UI
+    cart = []; 
+    updateCartUI(); 
+  });
+  function updateCartUI() {
+  const cartList = document.getElementById('cart-list');
+  const totalPriceDisplay = document.getElementById('total-price');
+
+  // Clear the HTML list items
+  cartList.innerHTML = '';
+
+  // Reset the total price display to zero
+  totalPriceDisplay.innerText = '0.00';
+
+  // If you are using a global 'total' variable, reset it here too
+  if (typeof total !== 'undefined') total = 0;
+}
+
+  document.getElementById('clear-cart-btn').addEventListener('click', () => {
+  cart = []; // Empty the array
+  updateCartUI(); // Clear the screen
+});
+
+</script>
+
+
 </body>
 </html>
