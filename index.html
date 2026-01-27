@@ -125,10 +125,9 @@ color:white;
     </form>
   </div>
 </nav>
-<div class="justify-content-end">
-  <
+
+
 <p><a id="67" class="link-offset-1" href="https://animesquadlogin.netlify.app/">sign in</a></p>
-</div>
 <!-- Cart Display -->
 <div id="cart-display">
   <h3>Your Cart</h3>
@@ -140,6 +139,35 @@ color:white;
 <button id="clear-cart-btn" style="background-color:red; color:white;">
   Clear Cart
 </button>
+<!-- THE MEMBER PASS UI -->
+<div id="member-card" style="background: linear-gradient(135deg, #1a1a1a, #444); color: white; width: 350px; border-radius: 20px; padding: 20px; margin: 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #cd7f32; display: none;">
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <!-- Profile Image -->
+    <div id="card-pic-frame" style="width: 80px; height: 80px; border-radius: 15px; overflow: hidden; border: 2px solid gold;">
+      <img id="card-pic" src="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <!-- Profile Info -->
+    <div>
+      <h4 id="card-name" style="margin: 0; font-size: 1.4rem; color: gold;">Member Name</h4>
+      <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">Rank: Bronze Squad</p>
+      <p style="margin: 0; font-size: 0.8rem; color: #00ff00;">● Active Member</p>
+    </div>
+  </div>
+  <hr style="margin: 15px 0; border: 0.5px solid #555;">
+  <div style="font-family: monospace; font-size: 0.7rem; text-align: center;">
+    MEMBER ID: <span id="member-uuid">0000-0000-0000</span>
+  </div>
+</div>
+
+<!-- INPUT SECTION -->
+<div id="profile-builder" style="text-align: center; background: #eee; padding: 20px; border-radius: 15px;">
+  <h3>Create Your 2026 Squad ID</h3>
+  <input type="text" id="name-field" placeholder="Enter Name" style="padding: 10px; border-radius: 5px;">
+  <input type="file" id="pic-field" accept="image/*" style="margin: 10px;">
+  <br>
+  <button id="save-id-btn" style="background: gold; color: black; font-weight: bold; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Generate ID</button>
+</div>
+
     <h1> welcome to anime world</h1>
     <p>welcome we have alot of stuff. to purchese</p>
     <img alt="luffy romance dawn" width="300" height="300" src="https://i.ebayimg.com/images/g/wAIAAOSw3iNmyEHT/s-l1600.png">
@@ -578,6 +606,60 @@ document.getElementById("button28").addEventListener("click", () => addToCart("U
 });
 
 </script>
+<script>
+  const saveIdBtn = document.getElementById('save-id-btn');
+  const cardSection = document.getElementById('member-card');
+
+  saveIdBtn.addEventListener('click', () => {
+    const name = document.getElementById('name-field').value;
+    const file = document.getElementById('pic-field').files[0];
+
+    if (!name || !file) {
+      alert("Please add a name and a picture!");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const imageData = e.target.result;
+      const uuid = "SQUAD-" + Math.floor(Math.random() * 9000 + 1000);
+
+      // SAVE TO STORAGE
+      localStorage.setItem('squad_name', name);
+      localStorage.setItem('squad_pic', imageData);
+      localStorage.setItem('squad_uuid', uuid);
+
+      // UPDATE UI
+      displayProfile(name, imageData, uuid);
+      
+      // Celebrate!
+      confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function displayProfile(name, pic, id) {
+    document.getElementById('card-name').innerText = name;
+    document.getElementById('card-pic').src = pic;
+    document.getElementById('member-uuid').innerText = id;
+    cardSection.style.display = 'block';
+    document.getElementById('profile-builder').style.display = 'none';
+  }
+
+  // AUTO-LOAD ON REFRESH (2026 Feature)
+  window.onload = () => {
+    const savedName = localStorage.getItem('squad_name');
+    const savedPic = localStorage.getItem('squad_pic');
+    const savedId = localStorage.getItem('squad_uuid');
+
+    if (savedName && savedPic) {
+      displayProfile(savedName, savedPic, savedId);
+    }
+  };
+</script>
+
+
+
 
 
 </body>
