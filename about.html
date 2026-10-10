@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AnimeWorld</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #252a32;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+      /* NAVBAR */
+        .bento-glow-nav {
+            position: sticky;
+            top: 12px;
+            z-index: 1000;
+            width: 94%;
+            max-width: 1150px;
+            margin: 12px auto 0;
+        }
+
+        .nav-bento-box {
+            background: rgba(10, 10, 10, 0.92);
+            border: 1px solid #444;
+            border-radius: 24px;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span,
+        .cyan {
+            color: #00eaff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+      .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00eaff;
+        }
+
+        .nav-button {
+            background: #00d9ee;
+            color: #111;
+            border: none;
+            border-radius: 12px;
+            padding: 9px 15px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+      /* HERO SECTION */
+        .hero {
+            min-height: 350px;
+            padding: 90px 20px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at top right,
+                #174e70, transparent 55%),
+                linear-gradient(135deg, #101722, #292b38);
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(0, 234, 255, 0.3);
+        }
+
+        .hero p {
+            font-size: 21px;
+            color: #ddd;
+        }
+
+        .underline {
+            width: 65px;
+            height: 5px;
+            margin: 25px auto;
+            background: #00eaff;
+            border-radius: 10px;
+        }
+      /* MAIN SECTIONS */
+        .section {
+            padding: 65px 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .story-image {
+            min-height: 300px;
+            height: 100%;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(circle at 30% 30%,
+                rgba(0, 234, 255, 0.4), transparent 40%),
+                linear-gradient(135deg, #172f4b, #15151f);
+            border: 1px solid #3a526b;
+        }
+
+        .story-image span {
+            font-size: 85px;
+        }
+      .story-image h3 {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .story-text {
+            color: #d3d6dd;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* MISSION CARDS */
+        .mission-section {
+            padding: 40px 20px 75px;
+            background: #20242b;
+            text-align: center;
+        }
+
+        .mission-card {
+            height: 100%;
+            background: linear-gradient(145deg, #202b39, #15191f);
+            padding: 30px 25px;
+            border: 1px solid #35475a;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+      .mission-card:hover {
+            transform: translateY(-8px);
+            border-color: #00eaff;
+            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.12);
+        }
+
+        .mission-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .mission-card p {
+            color: #cbd2dc;
+            line-height: 1.7;
+        }
+
+        /* COMMUNITY BANNER */
+        .community {
+            margin: 60px auto;
+            width: 90%;
+            padding: 55px 25px;
+            text-align: center;
+            border-radius: 22px;
+            border: 1px solid #34566a;
+            background:
+                radial-gradient(circle at center,
+                rgba(0, 234, 255, 0.15), transparent 65%),
+                #121922;
+        }
+      .community h2 {
+            font-weight: bold;
+        }
+
+        .join-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 13px 28px;
+            border-radius: 30px;
+            color: #101820;
+            background: #00eaff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .join-button:hover {
+            background: white;
+            transform: scale(1.04);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101317;
+            border-top: 1px solid #39414c;
+            padding: 30px 20px;
+            text-align: center;
+        }
+      footer a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #00eaff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-bento-box {
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 65px 15px;
+            }
+
+            .section {
+                padding: 45px 20px;
+            }
+
+            .story-image {
+                min-height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="bento-glow-nav">
+        <div class="nav-bento-box">
+
+            <a href="index.html" class="logo">
+                Anime<span>SQUAD</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#shop">SHOP</a></li>
+                <li><a href="about.html" class="active">ABOUT US</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+
+            <a href="index.html#shop" class="nav-button">
+                Explore Shop
+            </a>
+
+        </div>
+    </nav>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1>ABOUT <span class="cyan">US</span></h1>
+
+        <p>More Than Anime. It's a Community.</p>
+
+        <div class="underline"></div>
+
+        <p class="container">
+            Welcome to AnimeWorld, where every fan finds
+            something to love!
+        </p>
+    </header>
+
+    <!-- OUR STORY -->
+    <section class="section container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+                <div class="story-image">
+                    <div>
+                        <span>⚔️ 🏴‍☠️ ⭐</span>
+                        <h3>One Squad. Infinite Adventures.</h3>
+                        <p>United by our love for anime!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <p class="cyan fw-bold">OUR STORY</p>
+
+                <h2 class="section-title">
+                    Born From a Love for
+                    <span class="cyan">Anime</span>
+                </h2>
+
+                <p class="story-text">
+                    AnimeWorld started with a simple idea:
+                    to bring anime fans closer to the characters
+                    and stories they love.
+                </p>
+
+                <p class="story-text">
+                    From legendary pirates and powerful ninjas
+                    to brave heroes and unforgettable adventures,
+                    anime inspires us to dream bigger and imagine
+                    new possibilities.
+                </p>
+                <p class="story-text">
+                    We created this store for fans who want to
+                    celebrate their favorite anime through figures,
+                    collectibles, and anime-inspired products.
+                </p>
+
+                <a href="index.html#shop" class="join-button">
+                    Explore Our Collection →
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <!-- OUR MISSION -->
+    <section class="mission-section">
+        <div class="container">
+
+            <p class="cyan fw-bold">WHAT WE BELIEVE</p>
+
+            <h2 class="section-title">
+                Our Mission: Spread the
+                <span class="cyan">Anime Spirit</span>
+            </h2>
+
+            <p class="story-text mb-5">
+                We want every anime fan to feel welcome,
+                inspired, and connected.
+            </p>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">💙</div>
+
+                        <h4>Made for Fans</h4>
+
+                        <p>
+                            Our passion for anime inspires everything
+                            we do. This is a place where fans belong.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">⭐</div>
+
+                        <h4>Awesome Collections</h4>
+
+                        <p>
+                            Discover exciting figures, collectibles,
+                            and anime-themed products for your squad.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">🤝</div>
+
+                        <h4>A Growing Community</h4>
+
+                        <p>
+                            We celebrate the creativity, friendships,
+                            and adventures that make anime special.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- COMMUNITY BANNER -->
+    <section class="community">
+        <p class="cyan fw-bold">JOIN THE SQUAD</p>
+
+        <h2>
+            Fans Building for <span class="cyan">Fans</span>
+        </h2>
+
+        <p class="story-text">
+            Your next favorite collectible might be waiting for you.
+            <br>
+            Come explore the world of AnimeWorld!
+        </p>
+
+        <a href="index.html#shop" class="join-button">
+            Start Exploring →
+        </a>
+    </section>
+    <!-- FOOTER -->
+    <footer id="contact">
+        <h4 class="logo mb-3">
+            Anime<span>SQUAD</span>
+        </h4>
+
+        <div class="mb-3">
+            <a href="index.html">Home</a>
+            <a href="index.html#shop">Shop</a>
+            <a href="about.html">About Us</a>
+            <a href="mailto:hello@example.com">Contact</a>
+        </div>
+
+        <p class="text-secondary mb-0">
+            © 2026 AnimeWorld. Made with ❤️ for anime fans.
+        </p>
+    </footer>
+
+</body>
+</html>
