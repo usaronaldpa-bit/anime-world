@@ -1,478 +1,254 @@
 <!DOCTYPE html>
-<html>
 <head lang="en">
-    <title>anime world</title>
-    <style>
-      button{
-    background-color:orange;
-}
-body{
-    background-color:grey;
-    padding-left:50px;
-    padding-top:50px;
-}
-p{
-    color:white;
-}
-h1{
-    color:white;
-}
-.product {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px;
-  text-align: center;
-}
-#shopping-cart {
-  border: 1px solid #eee;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-#cart-items li {
-  margin-bottom: 5px;
-}
-.my-button {
-  background-color: blue;
-  color: white;
-}
-
-.my-button:hover {
-  background-color: darkblue; /* "Signal" on hover */
-}
-a{
-  background-color:black;
-color:white;
-}
-.checkout-btn-2025 {
-    background-color: #007bff; /* Primary Action Color */
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s;
-    width: 100%; /* Modern full-width mobile-first design */
-}
-
-.checkout-btn-2025:hover {
-    background-color: #0056b3;
-}
-
-.checkout-btn-2025:active {
-    transform: scale(0.98); /* Tactile feedback */
-}
-.search-container {
-    margin-bottom: 20px;
-}
-
-#product-search {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 25px; /* Modern pill shape */
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-#product-search:focus {
-    border-color: #007bff; /* Highlights when typing */
-}
-.limited-edition-tag {
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  
-  /* Create the rainbow gradient */
-  background: linear-gradient(
-    to right, 
-    #ff0000, #ff8b00, #e8ff00, #5dff00, #00b9ff, #5d00ff, #ff0000
-  );
-  
-  /* Clip the background to the text */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  
-  /* Size the background so it can move */
-  background-size: 200% auto;
-  
-  /* Apply the animation */
-  animation: rainbow-flow 3s linear infinite;
-}
-
-/* Define the movement */
-@keyframes rainbow-flow {
-  to {
-    background-position: 200% center;
-  }
-}
-      </style>
+    <title>Anime SQUAD</title>
+   
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>Anime SQUAD</header>
-  <div>
+  <!-- BENTO GLOW NAV -->
+<nav class="bento-glow-nav">
+  <div class="nav-bento-box">
+    <!-- Hover Tracker (The magic glow) -->
+    <div id="glow-tracker"></div>
     
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button style="background-color:green; color:white;" class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+</head>
+<body>
+
+
+
+    
+    <div class="nav-left">
+      <a href="#" class="logo">Anime<span>World</span></a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="" class="active">HOME</a></li>
+      <li><a href="">ABOUT US</a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="cart-trigger" onclick="toggleCart()">🛒</button>
+      <button class="idk-why" onclick="idkSir()">UPDATES 📜</button>
+    </div>
   </div>
 </nav>
+    <br>
+  
 
 
-<p><a id="67" class="link-offset-1" href="https://animesquadlogin.netlify.app/">sign in</a></p>
-<!-- Cart Display -->
-<div id="cart-display">
-  <h3>Your Cart</h3>
-  <ul id="cart-list"></ul>
-  <p>Total: $<span id="total-price">0.00</span></p>
-</div>
-<button id="checkout-btn" style="background-color:green; color:white;">checkout</button>
+     
 
-<button id="clear-cart-btn" style="background-color:red; color:white;">
-  Clear Cart
+
+
+<!-- Sidebar Cart Container -->
+<div id="cart-sidebar" style="position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transition: 0.4s; z-index: 1000; padding: 20px; display: flex; flex-direction: column;">
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+    <h2 style="margin: 0;">Your Squad Cart</h2>
+    <button onclick="toggleCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+  </div>
+
+  <!-- Scrollable Item List -->
+  <ul id="cart-items-list" style="list-style: none; padding: 0; flex-grow: 1; overflow-y: auto; margin-top: 20px;">
+    <!-- Items appear here -->
+  </ul>
+
+  <!-- Bottom Total & Checkout -->
+  <div style="border-top: 2px solid #eee; padding-top: 20px;">
+    <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
+      <span>Total:</span>
+      <span>$<span id="cart-sidebar-total">0.00</span></span>
+    </div>
+    <button id="checkout-btn" style="width: 100%; background: #28a745; color: white; border: none; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; cursor: pointer;">
+  Complete Purchase
 </button>
-<!-- THE MEMBER PASS UI -->
-<div id="member-card" style="background: linear-gradient(135deg, #1a1a1a, #444); color: white; width: 350px; border-radius: 20px; padding: 20px; margin: 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #cd7f32; display: none;">
-  <div style="display: flex; align-items: center; gap: 15px;">
-    <!-- Profile Image -->
-    <div id="card-pic-frame" style="width: 80px; height: 80px; border-radius: 15px; overflow: hidden; border: 2px solid gold;">
-      <img id="card-pic" src="" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <!-- Profile Info -->
-    <div>
-      <h4 id="card-name" style="margin: 0; font-size: 1.4rem; color: gold;">Member Name</h4>
-      <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">Rank: Bronze Squad</p>
-      <p style="margin: 0; font-size: 0.8rem; color: #00ff00;">● Active Member</p>
-    </div>
-  </div>
-  <hr style="margin: 15px 0; border: 0.5px solid #555;">
-  <div style="font-family: monospace; font-size: 0.7rem; text-align: center;">
-    MEMBER ID: <span id="member-uuid">0000-0000-0000</span>
   </div>
 </div>
-
-<!-- INPUT SECTION -->
-<div id="profile-builder" style="text-align: center; background: #eee; padding: 20px; border-radius: 15px;">
-  <h3>Create Your 2026 Squad ID</h3>
-  <input type="text" id="name-field" placeholder="Enter Name" style="padding: 10px; border-radius: 5px;">
-  <input type="file" id="pic-field" accept="image/*" style="margin: 10px;">
-  <br>
-  <button id="save-id-btn" style="background: gold; color: black; font-weight: bold; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Generate ID</button>
-</div>
-
-    <h1> welcome to anime world</h1>
-    <p>welcome we have alot of stuff. to purchese</p>
+    <P>FIGURES</P>
     <img alt="luffy romance dawn" width="300" height="300" src="https://i.ebayimg.com/images/g/wAIAAOSw3iNmyEHT/s-l1600.png">
     <br>
     <p>$35.00</p>
-<button type="button" id="button1">add to cart</button>
+<button class="add-to-cart-btn" data-name="luffy" data-price="35.00">add to cart</button>
+
 
 <br>
     <img alt="tanjaro" width="300" height="300" src="https://i.ebayimg.com/images/g/I0EAAOSwt3Jm4e~W/s-l400.jpg">
     <br>
     <p>$26.00</p>
-    <button type="button" id="button2">add to cart</button>
+    <button class="add-to-cart-btn" data-name="tanjaro" data-price="26.00">add to cart</button>
+
     <br>
     <img alt="zoro" width="300" height="300" src="https://i.ebayimg.com/images/g/zzkAAOSwa2FlLrBe/s-l1200.jpg"> <br>
     <p>$85.99</p>
-        <button type="button" id="button3">add to cart</button>
+        <button class="add-to-cart-btn" data-name="zoro onigashima" data-price="85.99">add to cart</button>
+
         <br>
        <img alt="totaroki" width="300" height="300" src="https://i.ebayimg.com/images/g/NgUAAOSw839oVBwB/s-l1200.jpg"> <br>
        <p>$20.30</p>
-        <button type="button" id="button4">add to cart</button>
+        <button class="add-to-cart-btn" data-name="totaroki" data-price="20.30">add to cart</button>
+
          <br> 
        <img alt="anya" width="300" height="300" src="https://cdn11.bigcommerce.com/s-se76uaubob/images/stencil/1280x1280/products/2603/24166/2__75824.1688081036.jpg?c=2"> 
        <p>$45.99</p>
-       <button type="button" id="button5">add to cart</button>
+       <button class="add-to-cart-btn" data-name="anya" data-price="45.99">add to cart</button>
+
        <br>
           <img alt="baruto" width="300" height="300" src="https://i.ebayimg.com/images/g/jhQAAeSw8wtpPRsC/s-l1600.jpg"> 
          <br>
-         <button type="button" id="button6">add to cart</button>
-<p>$34.99</p>
-<img alt="ussop" width="300" height="300" src="https://preview.redd.it/usopp-is-the-goat-v0-0gbnc32al68g1.jpg?width=640&crop=smart&auto=webp&s=6063c345bff071fb30261938036b9c3879bcecd1"> 
+         <p>20.00</p>
+         <button class="add-to-cart-btn" data-name="baruto" data-price="20.00">add to cart</button>
 <br>
+
+<img alt="ussop" width="300" height="300" src="https://preview.redd.it/usopp-is-the-goat-v0-0gbnc32al68g1.jpg?width=640&crop=smart&auto=webp&s=6063c345bff071fb30261938036b9c3879bcecd1"> 
+
 <p>30.00</p>
-      <button type="button" id="button7">add to cart</button>
+      <button class="add-to-cart-btn" data-name="ussop" data-price="30.00">add to cart</button>
+
          <br>
-<img alt="luffy parts " width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-monkey-d-luffy-romance-dawn-gum-gum-option-parts-set-4573102673046-pkf_800x.jpg?v=1744238873"> <br>
+<img alt="luffy parts" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-monkey-d-luffy-romance-dawn-gum-gum-option-parts-set-4573102673046-pkf_800x.jpg?v=1744238873"> <br>
 <p>$10.00</p>
-      <button type="button" id="button8">add to cart</button> 
+      <button class="add-to-cart-btn" data-name=" parts" data-price="10.00">add to cart</button>
+ 
        <br>
 <img alt="izuku" width="300" height="300" src="https://i.ebayimg.com/images/g/FYwAAOSwsPFncfFk/s-l400.jpg"> <br>
 <span class="limited-edition-tag">Limited Edition</span>
 <p>$55.00</p>
-       <button type="button" id="button9">add to cart</button>
+       <button class="add-to-cart-btn" data-name="izuku" data-price="55.00">add to cart</button>
+
          <br> 
 <img alt="sanji onigashima " width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-the-raid-on-onigashima-sh-figuarts-sanji-4573102649317-pkg_800x.jpg?v=1699306358"> <br>
 <p>$35.00</p>
-        <button type="button" id="button10">add to cart</button>
+        <button class="add-to-cart-btn" data-name="sanji onigashima" data-price="35.00">add to cart</button>
+
          <br>
     <img alt="kaido" width="300" height="300" src="https://figurestart.com/cdn/shop/files/S.H.Figuarts-Kaido-Man-Beast-Form-Figure-Sale.jpg?v=1718263978&width=1445"> <br>
     <p>$120.00</p>
-    <button type="button" id="button11">add to cart</button>
+    <button class="add-to-cart-btn" data-name="Figuarts-Kaido-Man-Beast-Form-Figure-Sale" data-price="120.00">add to cart</button>
+
      <br> 
 <img alt="marshal" width="300" height="300" src="https://i.ebayimg.com/images/g/qnAAAeSw81xo1r5k/s-l400.jpg"> <br>
 <p>$50.00</p> <br>
-    <button type="button" id="button12">add to cart</button>
+    <button class="add-to-cart-btn" data-name="marshal" data-price="25.00">add to cart</button>
+
       <br>
     <img alt="ace" width="300" height="300" src="https://i.ebayimg.com/images/g/43UAAOSwg5dni3en/s-l1200.png"> <br>
     <p>$65.00</p>
-       <button type="button" id="button13">add to cart</button>
+       <button class="add-to-cart-btn" data-name="ace" data-price="25.00">add to cart</button>
+
        <br>
 <img alt="nezuko" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/hgfhf_45b688a3-1d6f-44b2-930b-a5084a92adca.jpg?v=1727382562"> <br>
 <p>$30.00</p> <br>
-<button type="button" id="button14">add to cart</button>
+<button class="add-to-cart-btn" data-name="nezuko" data-price="25.00">add to cart</button>
+
          <br>
     <img alt="nami romance dawn" width="300" height="300" src="https://i.ebayimg.com/00/s/MTIwMFgxMDEy/z/rvQAAOSwgwVnGoYS/$_57.JPG?set_id=880000500F"> <br>
     <p>$33.99</p> <br>
-         <button type="button" id="button15">add to cart</button>
+         <button class="add-to-cart-btn" data-name="nami romance dawn VER" data-price="25.00">add to cart</button>
+
           <br>
-<img alt="egghead luffy" width="300" height="300" src="https://i.ebayimg.com/images/g/-lEAAOSwIoJoNJaO/s-l1200.png"> <br> 
+<img alt="egghead luffy " width="300" height="300" src="https://i.ebayimg.com/images/g/-lEAAOSwIoJoNJaO/s-l1200.png"> <br> 
 <p>$20.00</p><br>
-         <button type="button" id="button16">add to cart</button>
+         <button class="add-to-cart-btn" data-name="egghead luffy" data-price="25.00">add to cart</button>
+
           <br>
     <img alt="vageta" width="300" height="300" src="https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/i6YAAeSwt4NobUFQ/$_57.JPG?set_id=880000500F"> <br>
     <p>$40.00</p>
-         <br> <button type="button" id="button17">add to cart</button><br>
+         <br> <button class="add-to-cart-btn" data-name="vegeta" data-price="25.00">add to cart</button>
+<br>
 <img alt="bakugo" width="300" height="300" src="https://i.ebayimg.com/images/g/yOsAAOSwkcNn6-pj/s-l1200.jpg"> <br>
 <p>$30.00</p>
-        <br> <button type="button" id="button18">add to cart</button> <br>
+        <br> <button class="add-to-cart-btn" data-name="bakugo" data-price="25.00">add to cart</button>
+ <br>
     <img alt="chopper egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/6yAAAeSwQBxolLaL/s-l1200.webp"> <br>
     <p>$20.99</p>
-       <br> <button type="button" id="button19">add to cart</button>  <br>
-<img alt="luffy gear5" width="300" height="300" src="https://i.ebayimg.com/images/g/3CgAAOSwRcRmOZwt/s-l1200.jpg"> <br>
+       <br> <button class="add-to-cart-btn" data-name="chopper egghead" data-price="25.00">add to cart</button>
+  <br>
+<img alt=" gear5" width="300" height="300" src="https://i.ebayimg.com/images/g/3CgAAOSwRcRmOZwt/s-l1200.jpg"> <br>
 <span class="limited-edition-tag">Limited Edition</span>
 <p>$40.00</p>
-         <br> <button type="button" id="button20">add to cart</button> <br>
+         <br> <button class="add-to-cart-btn" data-name="gear 5 luffy" data-price="25.00">add to cart</button>
+ <br>
     <img alt="gojo" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/jujutsu-kaisen-sh-figuarts-satoru-gojo-tech-4573102655226-pkg_800x.jpg?v=1749080003"> <br>
     <p>$20.00</p>
-         <br> <button type="button" id="button21">add to cart</button> <br>
-<img alt="narto" width="300" height="300" src="https://i.ebayimg.com/images/g/0UMAAOSw2qdizBwh/s-l1200.jpg"> <br>
+         <br> <button class="add-to-cart-btn" data-name="gojo" data-price="25.00">add to cart</button>
+ <br>
+<img alt="naruto" width="300" height="300" src="https://i.ebayimg.com/images/g/0UMAAOSw2qdizBwh/s-l1200.jpg"> <br>
 <p>$30.00</p>
-<br> <button type="button" id="button22">add to cart</button> <br>
+<br> <button class="add-to-cart-btn" data-name="naruto" data-price="25.00">add to cart</button>
+ <br>
     <img alt="sauske" width="300" height="300" src="https://i.ebayimg.com/images/g/ITQAAOSwewJmNWDV/s-l1200.jpg"> <br>
     <p>$24.99</p>
-        <br> <button type="button" id="button23">add to cart</button> <br>
+        <br> <button class="add-to-cart-btn" data-name="suaskue" data-price="25.00">add to cart</button>
+ <br>
 <img alt="giyu" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/demon-slayer-kimetsu-no-yaiba-sh-figuarts-giyu-tomioka-4573102664778_1024x1024.jpg?v=1730163232"> <br>
 <p>$25.99</p>
-        <br> <button type="button" id="button24">add to cart</button> <br>
+        <br> <button class="add-to-cart-btn" data-name="giyu" data-price="25.00">add to cart</button>
+ <br>
     <img alt="rengoku" width="300" height="300" src="https://www.sugoimart.com/cdn/shop/files/SGM_ProductPDP_Template_0000_SGM32132.jpg?v=1755371076&width=620"> <br>
     <p>$24.99</p>
-        <br> <button type="button" id="button25">add to cart</button> <br>
+        <br> <button class="add-to-cart-btn" data-name="rengoku" data-price="25.00">add to cart</button>
+ <br>
 <img alt="shinobu" width="300" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUSbocb9TzmWjveodWX2-a4GxjJphp5Clb1g&s"> <br>
        <p>$29.99</p>
-         <br> <button type="button" id="button26">add to cart</button> <br>
+         <br> <button class="add-to-cart-btn" data-name="shinobu" data-price="25.00">add to cart</button>
+ <br>
 <img alt="goku super sain blue" width="300" height="300" src="https://preview.redd.it/i-got-a-ssj-blue-goku-as-my-first-sh-figuart-which-shf-v0-5w8b6i023ldd1.jpeg?auto=webp&s=e5db80c0ae8b4c753a5b56b6b17ba458a338703a"> <br>
 <p>$15.99</p>
-        <br> <button type="button" id="button27">add to cart</button> <br>
+        <br> <button class="add-to-cart-btn" data-name="goku super sayin blue" data-price="25.00">add to cart</button>
+ <br>
     <img alt="goku ultra Instinct" width="300" height="300" src="https://cdn11.bigcommerce.com/s-se76uaubob/images/stencil/1280x1280/products/1931/18091/m38285716718_1__82505.1656369023.jpg?c=2"> <br>
     <p>$20.99</p>
-    <br> <button type="button" id="button28">add to cart</button> <br>
+    <br> <button class="add-to-cart-btn" data-name="ultra Instinct goku" data-price="25.00">add to cart</button>
+ <br>
 <img alt="zoro" width="300" height="300" src="https://i.ebayimg.com/images/g/t1YAAOSwEitnsqo9/s-l1200.png"> <br>
 <p>$22.00</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="shanks" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-shanks-monkey-d-luffy-childhood-4573102673053-pkg_800x.jpg?v=1745281496"> <br>
-    <p>$40.00</p>
-</form>
-    <form>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="son gohan" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/dragonball-z-sh-figuarts-super-saiyan-gohan-warror-who-surpassed-goku-4573102655547-pkg_800x.jpg?v=1716846935"> <br>
-<p>$20.00</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"><br> <br> <br>
-    <img alt="vageta" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/dragonball-super-sh-figuarts-super-saiyan-blue-vegeta-unwavering-pride-4573102664587-pkg_800x.jpg?v=1730496439"> <br>
-    <p>$20.00</p>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="luffy onigashima" width="300" height="300" src="https://i.ebayimg.com/images/g/AFsAAOSwUXFk1Ohk/s-l960.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="bonnie egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/Qd8AAeSwwp1o0Vtc/s-l400.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="tech/blackbeard" width="300" height="300" src="https://i.ebayimg.com/images/g/KeUAAeSw7TBoyBae/s-l1200.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+<br> <button class="add-to-cart-btn" data-name="zoro romance dawn" data-price="25.00">add to cart</button>
+ <br>
+ 
+<img alt=" luffy onigashima" width="300" height="300" src="https://i.ebayimg.com/images/g/AFsAAOSwUXFk1Ohk/s-l960.jpg"> <br>
+<p>$35.00</p>
+        <br> <button class="add-to-cart-btn" data-name="luffy" data-price="25.00">add to cart</button>
+ <br>
+    <img alt="bonnie egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/Qd8AAeSwwp1o0Vtc/s-l400.jpg"> <p>$25.00</p> <br>
+        <br> <button class="add-to-cart-btn" data-name="bonnie egghead" data-price="25.00">add to cart</button>
+ <br>
+<img alt="tech/" width="300" height="300" src="https://i.ebayimg.com/images/g/KeUAAeSw7TBoyBae/s-l1200.jpg"> <br> <p>$45.00</p>
+        <br> <button class="add-to-cart-btn" data-name="" data-price="5.00">add to cart</button>
+ <br>
     <img alt="gon" width="300" height="300" src="https://i.ebayimg.com/images/g/g74AAOSw22poXVNi/s-l1200.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <p>$37.00</p> <br> <button class="add-to-cart-btn" data-name="gon" data-price="25.00">add to cart</button>
+ <br>
 <img alt="kullia" width="300" height="300" src="https://i.ebayimg.com/images/g/~c4AAeSwa-Rogk-L/s-l1200.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="franky" width="300" height="300" src="https://solarisjapan.com/cdn/shop/products/51flSE7MrtL.jpg?v=1600407496"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+       <br> <button class="add-to-cart-btn" data-name="kullia" data-price="25.00">add to cart</button>
+ <br>
 <img alt="sabo" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-sabo-revolutionary-army-chief-of-staff-4573102666260-pkg_800x.jpg?v=1740076784"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"><br> <br> <br>
-    <img alt="garra" width="300" height="300" src="https://i.ebayimg.com/images/g/eNwAAOSw-CBhfHMX/s-l400.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="kakashi" width="300" height="300" src="https://i.ebayimg.com/images/g/mVIAAOSwwblj68Ff/s-l1200.jpg">
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <br>
-    <img alt="sakura" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/BandaiNarutoShippudenSHFiguartsNarutop99SakuraHarunoActionFigure1.jpg?v=1722269777"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="chainsaw man" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/chainsaw-man-sh-figuarts-chainsw-man-4573102640512-pkg_800x.jpg?v=1696616278"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="gamai and bandi" width="300" height="300" src="https://m.media-amazon.com/images/I/71z2jZOwCSL._AC_SL1500_.jpg"> <br>
-        <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="ichici awa" width="300" height="300" src="https://gaijingadgets.com/cdn/shop/files/IMG_4910.jpg?v=1719083003"> <br>
-   <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="yor" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/spy-x-family-sh-figuarts-yor-forger-mother-of-the-forger-family-4573102653666-pkg_800x.jpg?v=1725051955"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="yor job form" width="300" height="300" src="https://m.media-amazon.com/images/I/71mwHmtwxcL._AC_UF894,1000_QL80_.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="loid spy" width="300" height="300" src="https://i.ebayimg.com/images/g/JowAAOSwAsJj3rgp/s-l1200.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="loid at home" width="300" height="300" src="https://www.supernovatnc.com/cdn/shop/files/s-l1600_d315dc1f-c150-46ca-bbf2-565d37d9e150.jpg?v=1709336214"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-       <img alt="lance" width="300" height="300" src="https://i.ebayimg.com/images/g/A8QAAOSwsCNlYs7R/s-l300.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="dot" width="300" height="300" src="https://i.ebayimg.com/images/g/WvkAAeSwGI5oeq-Q/s-l300.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="chainsaw man" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/chainsaw-man-sh-figuarts-denji-4573102656506-pkg_800x.jpg?v=1713819213"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="Kyouka Gaikokkaku" width="300" height="300" src="https://cdn11.bigcommerce.com/s-cy4lua1xoh/images/stencil/1280x1280/products/35970/352732/0561bff8-1362-5d2d-bb2d-484d9d00c83b__75363.1713798108.jpg?c=1"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>   <img alt="luffy live acton" width="300" height="300" src="https://resources.claroshop.com/medios-plazavip/s2/33452/5295310/65ef9cf17eb5c-bandai-sh-figuarts-one-piece-monkey-d-luffy-netflix-series5-1600x1600.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-<img alt="freza 4 " width="300" height="300" src="https://i.ebayimg.com/00/s/NzM2WDczNg==/z/Q8YAAOSwInNiIvo-/$_57.JPG?set_id=8800005007"> <br>
-     <br> <br> <br>
-    <img alt="freza buff" width="300" height="300" src="https://i.ebayimg.com/images/g/z9MAAOSwjKJm25rO/s-l1200.jpg"> <br>
-     <br> <br> <br>
-<img alt="golden freza" width="300" height="300" src="https://images-na.ssl-images-amazon.com/images/I/518O1gCUjJL.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+        <br> <button class="add-to-cart-btn" data-name="sabo" data-price="25.00">add to cart</button>
+<br>
+   
        <img alt="zoro live action" width="300" height="300" src=" https://m.media-amazon.com/images/I/717JUvVIePL._AC_UF894,1000_QL80_.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
 <img alt="live action nami" width="300" height="300" src="https://www.radartoys.com/cdn/shop/files/hgfhf_5f5be845-1713-4e56-b3b2-f9bc8313d675.jpg?v=1727370116"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
     <img alt="yamato" width="300" height="300" src="https://blueberry-cat.com/cdn/shop/files/57_5bfe20a9-8ec9-4a02-b200-9759128c634e_1024x1024@2x.jpg?v=1724257957"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
 <img alt="yuji" width="300" height="300" src="https://i.ebayimg.com/00/s/MTUzOVgxMDE0/z/fG4AAOSwcCZnFlVw/$_57.JPG?set_id=880000500F"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
        <img alt="momo" width="300" height="300" src="https://i.ebayimg.com/images/g/0~gAAOSw~z1nlkCm/s-l400.jpg"> <br>
      <br> <br> <br>
 <img alt="memugi" width="300" height="300" src="https://ae01.alicdn.com/kf/S04f2548d85814df2b9babd76852f55baz.jpg_960x960.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
     <img alt="norbara" width="300" height="300" src="https://cmdstore.com/cdn/shop/products/jujutsu-kaisen-sh-figuarts-nobara-kugisaki-4573102629760-pkg_800x.jpg?v=1662056447"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
 <img alt="izuku and bakugo" width="300" height="300" src="https://i.ebayimg.com/images/g/aEcAAeSwgldohTcz/s-l1200.jpg"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
        <img alt="law" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/one-piece-sh-figuarts-trafalgar-law-4573102660534-pkg_800x.jpg?v=1714079969"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
 <img alt="kid" width="300" height="300" src="https://i.ebayimg.com/images/g/yqEAAOSwcc9mhNeW/s-l1200.png"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
     <img alt="bond" width="300" height="300" src="https://cmdstore.com/cdn/shop/files/spy-x-family-sh-figuarts-bond-forger-with-anya-4573102653673_1024x.jpg?v=1724979551"> <br>
-    <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
+   
 <img alt="zenutu" width="300" height="300" src="https://hello-japan.com/cdn/shop/files/SGM_ProductPDP_Template_0000_SGM32134.jpg?v=1755842939"> <br>
     <input type="hidden" name="product_id" value="456">
   <input type="hidden" name="product_name" value="Another Item">
@@ -481,185 +257,385 @@ color:white;
     <img alt="ochaco" width="300" height="300" src="https://i.ebayimg.com/images/g/YZAAAeSwZ8VpAsT-/s-l1600.jpg"> <br>
     <input type="hidden" name="product_id" value="456">
   <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_id" value="456">
-  <input type="hidden" name="product_name" value="Another Item">
-  <input type="hidden" name="product_price" value="29.99">
-  <input type="submit" value="Add to Cart"> <br> <br> <br>
-    <img alt="gear 5 monkey-d-luffy egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/7dwAAeSwpUNo-XAz/s-l1600.jpg"> <br>
+ 
+    <img alt="gear 5 monkey-d- egghead" width="300" height="300" src="https://i.ebayimg.com/images/g/7dwAAeSwpUNo-XAz/s-l1600.jpg"> <br>
     <p>$20.00</p>
-    <script>
-       
-       
-let cart = [];
+    <br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+    <br>
+    <img alt="..." width="300" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx5mYL-uAJAbEythW6Svycss-UWCDTGvDpaCpQYZ3n0w&s=10"> <br>
+<p>$50.00</p> <br>
+    <button class="add-to-cart-btn" data-name="boa handcock" data-price="25.00">add to cart</button>
 
-function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ name: name, price: price, quantity: 1 });
-    }
-    updateCartDisplay();
-}
+      <br>
+    <p>TECH</p>
+    <img alt="" width="300" height="300" src=""> <br>
+ <br>
+<img alt="..." width="300" height="300" src="https://higround.co/cdn/shop/files/ONEPIECE_027.jpg?v=1724779090&width=480"> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="nami keyboard" data-price="25.00">add to cart</button>
+ <br>
 
-function updateCartDisplay() {
-    const cartList = document.getElementById("cart-list");
-    const totalDisplay = document.getElementById("total-price");
+<img alt="..." width="300" height="300" src="https://static.trackalacker.com/cdn-cgi/image/fit=pad,width=600,height=600,quality=85,format=auto/uploads/products/listings/photo_item/photo/229147/higround-luffy-gear-5-65-pbt-68-key-keycap-set-multi.jpg"> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="gear 5 keyboard" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="..." width="300" height="300" src="https://m.media-amazon.com/images/I/71bl0qxxdCL._UF1000,1000_QL80_.jpg"> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src="https://rushcontroller.com/cdn/shop/files/81hbvpAs84L._SL1500_1024x.jpg?v=1758823370"> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+
+<img alt="" width="300" height="300" src=""> <br>
+<p></p>
+<br><button class="add-to-cart-btn" data-name="" data-price="25.00">add to cart</button>
+ <br>
+ <br>
+ <!-- COMMENT SECTION -->
+<div class="comment-section" style="max-width: 800px; margin: 50px auto; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); color: white; font-family: 'Inter', sans-serif;">
+  <h3 style="border-left: 4px solid cyan; padding-left: 15px; margin-bottom: 25px;">SQUAD DISCUSSIONS</h3>
+  
+  <!-- Input Box -->
+  <div style="display: flex; gap: 10px; margin-bottom: 30px;">
+    <input type="text" id="comment-input" placeholder="Join the hype..." style="flex-grow: 1; padding: 15px; border-radius: 12px; border: 1px solid #444; background: #1a1a1a; color: white; outline: none;">
+    <button onclick="addComment()" style="padding: 0 25px; border-radius: 12px; background: cyan; color: black; font-weight: bold; border: none; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">POST</button>
+  </div>
+
+  <!-- Comments List -->
+  <div id="comments-container" style="display: flex; flex-direction: column; gap: 15px;">
+    <!-- Default Comment -->
+    <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border-left: 2px solid rgba(0,255,255,0.3);">
+      <strong style="color: cyan; font-size: 0.8rem;">ADMIN_LUFFY</strong>
+      <p style="margin: 5px 0 0 0; font-size: 0.95rem;">New Sanji drop looks fire! Who's copping? 🔥</p>
+    </div>
+  </div>
+</div>
+<br>
+ <script>
+  let cart = JSON.parse(localStorage.getItem('anime_cart')) || [];
+
+  // Toggle Sidebar Visibility
+  function toggleCart() {
+    const sidebar = document.getElementById('cart-sidebar');
+    sidebar.style.right = sidebar.style.right === "0px" ? "-400px" : "0px";
+  }
+
+  // Universal Click Listener for Add Buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-to-cart-btn');
+    if (!btn) return;
+
+    const newItem = {
+      id: crypto.randomUUID(), // Unique ID for 2026 standard
+      name: btn.getAttribute('data-name'),
+      price: parseFloat(btn.getAttribute('data-price'))
+    };
+
+    cart.push(newItem);
+    localStorage.setItem('anime_cart', JSON.stringify(cart));
     
-    cartList.innerHTML = "";
+    updateCartUI();
+    if (document.getElementById('cart-sidebar').style.right !== "0px") toggleCart(); // Auto-open
+  });
+
+  // Remove Specific Item
+  function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem('anime_cart', JSON.stringify(cart));
+    updateCartUI();
+  }
+
+  // Refresh Sidebar List
+  function updateCartUI() {
+    const list = document.getElementById('cart-items-list');
+    const totalDisplay = document.getElementById('cart-sidebar-total');
+    list.innerHTML = '';
     let total = 0;
 
     cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}`;
-        cartList.appendChild(li);
-        total += item.price * item.quantity;
+      const li = document.createElement('li');
+      li.style = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px;";
+      li.innerHTML = `
+        <div>
+          <div style="font-weight: bold;">${item.name}</div>
+          <div style="color: #666;">$${item.price.toFixed(2)}</div>
+        </div>
+        <button onclick="removeFromCart('${item.id}')" style="background: #ff4444; color: white; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer;">Remove</button>
+      `;
+      list.appendChild(li);
+      total += item.price;
     });
 
-    totalDisplay.textContent = total.toFixed(2);
-}
+    totalDisplay.innerText = total.toFixed(2);
+  }
 
-// Listeners for both buttons
-document.getElementById("button1").addEventListener("click", () => addToCart("monkey-d-luffy romance dawn version", 35.00));
-document.getElementById("button2").addEventListener("click", () => addToCart("Demon Slayer Tanjiro Kamado Action Figure 2", 26.00));
-document.getElementById("button3").addEventListener("click", () => addToCart("Roronoa Zoro One Piece BEST SELECTION Raid Onigashima", 85.99));
-document.getElementById("button4").addEventListener("click", () => addToCart("Action Figure Shoto Todoroki (My Hero Academia)", 20.30));
-document.getElementById("button5").addEventListener("click", () => addToCart(" Spy X Family Anya Forger Uniform Ver Figure",45.99));
-document.getElementById("button6").addEventListener("click", () => addToCart("Boruto Uzumaki Action Figure -Naruto Next Generations", 12.99));
-document.getElementById("button7").addEventListener("click", () => addToCart("One Piece Usopp Romance Dawn Action Figure SHF Toy In Stock", 30.00));
-document.getElementById("button8").addEventListener("click", () => addToCart(" Monkey D. Luffy Romance Dawn Gum-Gum Option Parts Set New", 55.00));
-document.getElementById("button9").addEventListener("click", () => addToCart("My Hero Academia Izuku Midoriya Deku Figure", 20.00));
-document.getElementById("button10").addEventListener("click", () => addToCart("One Piece Sanji Invasion of Onigashima Action Figure", 35.00));
-document.getElementById("button11").addEventListener("click", () => addToCart("One Piece - Kaido King of The Beasts (Man-Beast Form) S.H.Figuarts Action Figure", 120.00));
-document.getElementById("button12").addEventListener("click", () => addToCart("Mashle: Magic and Muscles - Mash Burnedead, Bandai Spirits S.H.Figuarts Action Figure", 50.00));
-document.getElementById("button13").addEventListener("click", () => addToCart("ONE PIECE PORTGAS D ACE FIRE FIST ACTION FIGURE GIFT", 65.00));
-document.getElementById("button14").addEventListener("click", () => addToCart("Demon Slayer: Kimetsu no Yaiba - Nezuko Kamado", 30.00));
-document.getElementById("button15").addEventListener("click", () => addToCart("One Piece SHF Nami Romance Dawn Action Figure", 33.99));
-document.getElementById("button16").addEventListener("click", () => addToCart("One Piece Monkey.D.Luffy Future Island Egghead Action Figure", 20.00));
-document.getElementById("button17").addEventListener("click", () => addToCart(" Dragonball Vegeta -DAIMA- TAMASHII NATIONS Action Figure New", 40.00));
-document.getElementById("button18").addEventListener("click", () => addToCart("My Hero Academia Katsuki Bakugo TAMASHII NATIONS Bandai Japan New", 30.00));
-document.getElementById("button19").addEventListener("click", () => addToCart("TonyTony.Chopper -Future Island Egghead- One Piece, Action Figure", 20.99));
-document.getElementById("button20").addEventListener("click", () => addToCart("One Piece MONKEY.D.LUFFY GEAR 5 Action Figure ", 40.00));
-document.getElementById("button21").addEventListener("click", () => addToCart("Jujutsu Kaisen Satoru Gojo Action Figure SHF", 20.00));document.getElementById("button22").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 30.00));
-document.getElementById("button23").addEventListener("click", () => addToCart("Naruto Uzumaki S.H. Figuarts The Jinchuriki Entrusted with Hope Action Figure", 24.99));
-document.getElementById("button24").addEventListener("click", () => addToCart(" Demon Slayer Giyu Tomioka Action Figure Bandai Spirits", 25.99));
-document.getElementById("button25").addEventListener("click", () => addToCart("Kyojuro Rengoku Demon Slayer", 24.99));
-document.getElementById("button26").addEventListener("click", () => addToCart("Bandai Demon Slayer: Kimetsu no Yaiba Tamashii Nations S.H.Figuarts Shinobu Kocho 7.1-in Figure", 29.99));
-document.getElementById("button27").addEventListener("click", () => addToCart("Dragon Ball Super Super Saiyan God Super Saiyan Goku", 15.99));
-document.getElementById("button28").addEventListener("click", () => addToCart("Ultra Instinct Goku [Dragon Ball Super] (S.H.Figuarts)", 15.99));
-      </script>
-      <script>
-  // Assuming 'cart' is your array of items
-  // and 'cartList' is your <ul> or <div> element
-  const clearBtn = document.getElementById('clear-cart-btn');
-
-  clearBtn.addEventListener('click', () => {
-    // 1. Reset the cart data to an empty array
-    cart = []; 
-
-    // 2. Clear the visual list in the HTML
-    const cartList = document.getElementById('cart-list');
-    cartList.innerHTML = ''; 
-
-    // 3. Reset the total price display to $0.00
-    const totalPriceDisplay = document.getElementById('total-price');
-    totalPriceDisplay.innerText = '0.00';
-
-    // Optional: Log confirmation for 2026 debugging
-    console.log("Cart was cleared successfully."); 
-  });
+  // Initial Load
+  window.onload = updateCartUI;
 </script>
 <script>
+  // This looks for your checkout button and adds the "Cool Items" popup
   document.getElementById('checkout-btn').addEventListener('click', () => {
-    // 1. Check if there is anything to buy
     if (cart.length === 0) {
-      alert("Your cart is empty!");
+      alert("Sorry but your carts Empty lets get some stuff first 😁 ");
       return;
     }
 
-    // 2. Calculate the total spent
-    let totalSpent = cart.reduce((sum, item) => sum + item.price, 0);
 
 
-    // 3. THE CLEARING PART:
-    // This empties the data array and resets the UI
-    cart = []; 
-    updateCartUI(); 
+
+let finalTotal = cart.reduce((sum, item) => sum + item.price, 0);
+
+    // 2. Trigger the "Cool Items" alert with the total
+    alert(`Cool Items 🤩🥳! \n\nTotal Spent: $${finalTotal.toFixed(2)}`);
+
+    // 3. Trigger Confetti for the win
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+    // 4. Clear the cart data and refresh the UI
+    cart = [];
+    localStorage.setItem('anime_cart', JSON.stringify(cart));
+    updateCartUI();
+    
+    // Close the sidebar automatically
+    toggleCart();
   });
-  function updateCartUI() {
-  const cartList = document.getElementById('cart-list');
-  const totalPriceDisplay = document.getElementById('total-price');
+document.getElementById('checkout-btn').onclick = () => { cart = []; localStorage.removeItem('anime_cart'); updateCartUI(); toggleCart(); };
 
-  // Clear the HTML list items
-  cartList.innerHTML = '';
-
-  // Reset the total price display to zero
-  totalPriceDisplay.innerText = '0.00';
-
-  // If you are using a global 'total' variable, reset it here too
-  if (typeof total !== 'undefined') total = 0;
-}
-
-  document.getElementById('clear-cart-btn').addEventListener('click', () => {
-  cart = []; // Empty the array
-  updateCartUI(); // Clear the screen
-});
 
 </script>
 <script>
-  const saveIdBtn = document.getElementById('save-id-btn');
-  const cardSection = document.getElementById('member-card');
+  document.getElementById('add-all-btn').addEventListener('click', () => {
+    // 1. Select every single product button on the page
+    const allButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+    // 2. Loop through them and add each one to the cart array
+    allButtons.forEach(btn => {
+      const name = btn.getAttribute('data-name');
+      const price = parseFloat(btn.getAttribute('data-price'));
 
-  saveIdBtn.addEventListener('click', () => {
-    const name = document.getElementById('name-field').value;
-    const file = document.getElementById('pic-field').files[0];
+      cart.push({
+        id: crypto.randomUUID(),
+        name: name,
+        price: price
+      });
+    });
+
+    // 3. Save to browser and update the sidebar
+    localStorage.setItem('anime_cart', JSON.stringify(cart));
+    updateCartUI();
+    
+    // 4. Big celebration for a big purchase!
+    confetti({  
+      particleCount: 250,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+
+    if (document.getElementById('cart-sidebar').style.right !== "0px") toggleCart();
+  });
+</script>
+<script>
+  document.getElementById('clear-all-btn').addEventListener('click', () => {
+    // 1. Ask for confirmation (2026 UX best practice for destructive actions)
+    if (confirm("Are you sure you want to remove all items from your squad cart?")) {
+      
+      // 2. Empty the JavaScript array
+      cart = [];
+      
+      // 3. Remove the specific data from browser memory
+      localStorage.removeItem('anime_cart');
+      
+      // 4. Update the sidebar UI to show it's empty
+      updateCartUI();
+      
+      // 5. Optional: Close the cart after clearing
+      toggleCart();
+    }
+    
+  });
+</script>
+    <script>
+  const genBtn = document.getElementById('generate-btn');
+  const fileIn = document.getElementById('input-file');
+  
+  genBtn.addEventListener('click', () => {
+    const name = document.getElementById('input-name').value;
+    const file = fileIn.files[0];
 
     if (!name || !file) {
-      alert("Please add a name and a picture!");
+      alert("⚠️ DATA ERROR: Name and Photo required for Squad Activation.");
       return;
     }
 
     const reader = new FileReader();
-    reader.onload = function(e) {
-      const imageData = e.target.result;
-      const uuid = "SQUAD-" + Math.floor(Math.random() * 9000 + 1000);
+    reader.onload = (e) => {
+      const imgData = e.target.result;
+      const uuid = Math.floor(1000 + Math.random() * 9000);
 
-      // SAVE TO STORAGE
-      localStorage.setItem('squad_name', name);
-      localStorage.setItem('squad_pic', imageData);
-      localStorage.setItem('squad_uuid', uuid);
-
-      // UPDATE UI
-      displayProfile(name, imageData, uuid);
+      // Save to 2026 Storage
+      localStorage.setItem('member_data', JSON.stringify({ name, imgData, uuid }));
       
-      // Celebrate!
-      confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+      displayPass(name, imgData, uuid);
+      
+      // Hyper-Interactive Feedback
+      confetti({ particleCount: 150, colors: ['#00FFFF', '#FFFFFF'] });
     };
     reader.readAsDataURL(file);
   });
 
-  function displayProfile(name, pic, id) {
-    document.getElementById('card-name').innerText = name;
-    document.getElementById('card-pic').src = pic;
-    document.getElementById('member-uuid').innerText = id;
-    cardSection.style.display = 'block';
-    document.getElementById('profile-builder').style.display = 'none';
+  function displayPass(name, img, id) {
+    document.getElementById('pass-name').innerText = name;
+    document.getElementById('pass-img').src = img;
+    document.getElementById('pass-uuid').innerText = "#" + id;
+    
+    document.getElementById('premium-pass').style.display = 'block';
+    document.getElementById('pass-controls').style.display = 'none';
   }
 
-  // AUTO-LOAD ON REFRESH (2026 Feature)
+  // Load Saved Member on Refresh
   window.onload = () => {
-    const savedName = localStorage.getItem('squad_name');
-    const savedPic = localStorage.getItem('squad_pic');
-    const savedId = localStorage.getItem('squad_uuid');
-
-    if (savedName && savedPic) {
-      displayProfile(savedName, savedPic, savedId);
-    }
+    const saved = JSON.parse(localStorage.getItem('member_data'));
+    if (saved) displayPass(saved.name, saved.imgData, saved.uuid);
   };
 </script>
+<script>
+  const cards = document.querySelectorAll('.squad-card-hero');
 
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = card.getBoundingClientRect();
+      
+      // Calculate rotation based on cursor position
+      const x = ((clientX - left) / width - 0.5) * 20; // 20deg max tilt
+      const y = ((clientY - top) / height - 0.5) * -20;
 
+      card.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg) scale(1.05)`;
+    });
 
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  });
+</script>
+<script>
+  function addComment() {
+    const input = document.getElementById('comment-input');
+    const container = document.getElementById('comments-container');
+    
+    if (input.value.trim() === "") {
+        alert("Say something first, Nakama!");
+        return;
+    }
+
+    // Create the new comment element
+    const newComment = document.createElement('div');
+    newComment.style.cssText = "background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border-left: 2px solid cyan; animation: slideIn 0.3s ease-out;";
+    
+    // Get the name from your Premium Pass if it exists, otherwise use 'Guest Agent'
+    const currentName = document.getElementById('pass-name').innerText !== "NAME" ? 
+                        document.getElementById('pass-name').innerText : "GUEST_AGENT";
+
+    newComment.innerHTML = `
+        <strong style="color: cyan; font-size: 0.8rem;">${currentName}</strong>
+        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">${input.value}</p>
+    `;
+
+    // Add to the top of the list
+    container.prepend(newComment);
+    
+    // Clear input
+    input.value = "";
+}
+
+// Optional: Press Enter to post
+document.getElementById('comment-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') addComment();
+});
+  </script>
+<script>
+  function idkSir() {
+      alert ("UPDATE📜 1. SHF TRAFALGER LAW JOINS ON  JUN-19-2026  2.AI SYSTEM COME IN 3 DAYS  3. A WAY TO WATCH ANIME PAGE COMING SOON")                                                                                                                                          
+  }
+</script>
 
 
 </body>
